@@ -1,4 +1,6 @@
 import 'package:banking/repo/colors.dart';
+import 'package:banking/repo/widgets/button.dart';
+import 'package:banking/repo/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../repo/colors.dart';
@@ -11,6 +13,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final email = TextEditingController();
+  final pass = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 1;
@@ -20,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             Container(
-              height: height * 0.5,
+              height: height * 0.55,
               width: width,
               decoration: BoxDecoration(
                 color: AppColors.mainColor
@@ -30,8 +34,49 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   SizedBox(height: height * 0.08,),
                   Text("WELCOME!", style: Theme.of(context).textTheme.titleLarge!.copyWith(color: AppColors.heading1,fontSize: 30),),
-                  SizedBox(height: height * 0.03,),
-                  Image(image: AssetImage('assets/images/image2.png'),width: width * 0.45,height: height*0.3),
+                  SizedBox(height: height * 0.02,),
+                  Image(image: AssetImage('assets/images/image2.png'),width: width * 0.5,height: height*0.35),
+                ],
+              ),
+            ),
+            Container(
+              height: height * 0.45,
+              width: width,
+              child: Column(
+                children: [
+                  SizedBox(height: height*0.05,),
+                  TextFiledWidget(
+                      controller: email,
+                    obscure: false,
+                    obscureChara: '1',
+                    textHint: 'Username or Email',
+                    textInputType: TextInputType.emailAddress,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: height*0.02,),
+                  TextFiledWidget(
+                    controller: pass,
+                    obscure: true,
+                    obscureChara: '*',
+                    textHint: 'Password',
+                    textInputType: TextInputType.text,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: height*0.02,),
+                  ButtonWidget(onTap: (){}, text: 'Login'),
+                  SizedBox(height: height*0.05,),
+                  Text("Forgot password?",style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.textColor2,
+                      fontSize: 17),
+                  ),
+                  SizedBox(height: height*0.01,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('New to Bank Apps',style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.borderColor,fontSize: 17),),
+                      SizedBox(width: width*0.02,),
+                      Text("Sign Up",style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.textColor2, fontSize: 17),),
+                    ],
+                  )
                 ],
               ),
             )
