@@ -1,3 +1,5 @@
+import 'package:banking/repo/colors.dart';
+import 'package:banking/views/home_screen.dart';
 import 'package:banking/views/login_screen.dart';
 import 'package:banking/views/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +20,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(color: AppColors.iconColor),
+        ),
         textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
           bodyLarge: GoogleFonts.poppins(textStyle: textTheme.bodyLarge),
           bodySmall: GoogleFonts.poppins(textStyle: textTheme.titleSmall),
@@ -28,7 +33,7 @@ class MyApp extends StatelessWidget {
           displayMedium: GoogleFonts.poppins(textStyle: textTheme.displayMedium)
         ),
       ),
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
