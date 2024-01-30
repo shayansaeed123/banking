@@ -120,7 +120,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                   ),
                 ),
-                // SizedBox(height: height * 0.02,),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: height*0.02,horizontal: width*0.03),
                   child: Row(
