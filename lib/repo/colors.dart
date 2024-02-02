@@ -12,5 +12,6 @@ class AppColors{
   static const buttonColor = Color(0xFF184577);
   static const textColor3 = Color(0xFF184577);
   static const textColor2 = Color(0xFF1ebef0);
+  static const iconColor2 = Color(0xFF1ebef0);
   static const buttonTextColor = Color(0xFF000000);
 }
