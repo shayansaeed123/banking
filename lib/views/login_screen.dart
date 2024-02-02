@@ -1,6 +1,7 @@
 import 'package:banking/repo/colors.dart';
 import 'package:banking/repo/widgets/button.dart';
 import 'package:banking/repo/widgets/text_field.dart';
+import 'package:banking/views/account_screen.dart';
 import 'package:banking/views/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +68,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ButtonWidget(
                       btnWidth: width*0.3,
                       buttonTextColor: AppColors.textColor,
-                      onTap: (){}, text: 'LOG IN'),
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AccountScreen(),));
+                      }, text: 'LOG IN'),
                   SizedBox(height: height*0.05,),
                   Text("Forgot password?",style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.textColor2,
                       fontSize: 17),

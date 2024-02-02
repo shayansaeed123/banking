@@ -24,6 +24,7 @@ class _AccountScreenState extends State<AccountScreen> {
     final height = MediaQuery.of(context).size.height * 1;
     return Scaffold(
       appBar: AppBar(
+        // leading: Icon(Icons.arrow_back_ios),
         actions: [
           InkWell(
             onTap: (){
@@ -129,8 +130,8 @@ class _AccountScreenState extends State<AccountScreen> {
             ButtonWidget(
               onTap: (){},
               text: 'SAVE CHANGES',
-              buttonTextColor: AppColors.buttonTextColor,
-              btnWidth: width*0.6,
+              buttonTextColor: AppColors.whiteButtonColor,
+              btnWidth: width*0.4,
             )
           ],
         ),
