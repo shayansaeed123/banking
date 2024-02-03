@@ -130,8 +130,10 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 // height: height*0.02,
                 child: Text('PHONE NUMBER', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.borderColor,fontSize: 15),)),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  height: height*0.04,
                   width: width*0.1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
@@ -173,11 +175,12 @@ class _AddCardScreenState extends State<AddCardScreen> {
                           },
                         );
                       },
-                      child: Text(phoneCode.toString(), style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.borderColor,fontSize: 15),))
+                      child: Text(phoneCode.toString(),textAlign: TextAlign.center, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.black,fontSize: 15),))
                 ),
                 Container(
                   height: height*0.04,
                   child: TextFiledWidget(
+                    fieldWidth: 0.7,
                     controller: password,
                     textHint: 'ENTER YOUR NUMBER',
                     textAlign: TextAlign.start,

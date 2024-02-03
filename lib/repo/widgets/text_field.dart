@@ -10,6 +10,7 @@ class TextFiledWidget extends StatelessWidget {
     required this.obscureChara,
     required this.obscure,
     this.border =10,
+    this.fieldWidth = 0.8,
   });
   TextEditingController controller = TextEditingController();
   TextInputType textInputType = TextInputType.none;
@@ -18,13 +19,14 @@ class TextFiledWidget extends StatelessWidget {
   String textHint = '';
   TextAlign textAlign;
   double border;
+  double fieldWidth;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 1;
     final height = MediaQuery.of(context).size.height * 1;
     return Container(
-      width: width * 0.8,
+      width: width * fieldWidth,
       child: TextFormField(
         controller: controller,
         textAlign: textAlign,
