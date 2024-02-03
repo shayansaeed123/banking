@@ -1,9 +1,9 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:flutter/material.dart';
 
 import '../repo/colors.dart';
 import '../repo/widgets/button.dart';
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../repo/widgets/text_field.dart';
 
@@ -15,6 +15,7 @@ class AddCardScreen extends StatefulWidget {
 }
 
 class _AddCardScreenState extends State<AddCardScreen> {
+  String phoneCode = '+92';
   final name = TextEditingController();
   final cardNumber = TextEditingController();
   final email = TextEditingController();
@@ -128,37 +129,66 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 width: width*0.8,
                 // height: height*0.02,
                 child: Text('PHONE NUMBER', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.borderColor,fontSize: 15),)),
-            Container(
-              width: width*0.3,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                border: Border.all(color: Colors.grey,width: 2),
-              ),
-              child: CountryCodePicker(
-                onChanged: print,
-                // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                initialSelection: 'IT',
-                favorite: ['+39','FR'],
-                // optional. Shows only country name and flag
-                showCountryOnly: false,
-                // optional. Shows only country name and flag when popup is closed.
-                showOnlyCountryWhenClosed: false,
-                // optional. aligns the flag and the Text left
-                alignLeft: false,
-              ),
+            Row(
+              children: [
+                Container(
+                  width: width*0.1,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    border: Border.all(color: Colors.grey,width: 2),
+                  ),
+                  child: InkWell(
+                      onTap: (){
+                        showCountryPicker(
+                            context: context,
+                          countryListTheme: CountryListThemeData(
+                            flagSize: 25,
+                            backgroundColor: Colors.white,
+                            textStyle: TextStyle(fontSize: 16, color: Colors.blueGrey),
+                            bottomSheetHeight: 500, // Optional. Country list modal height
+                            //Optional. Sets the border radius for the bottomsheet.
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20.0),
+                              topRight: Radius.circular(20.0),
+                            ),
+                            //Optional. Styles the search field.
+                            inputDecoration: InputDecoration(
+                              labelText: 'Search',
+                              hintText: 'Start typing to search',
+                              prefixIcon: const Icon(Icons.search),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: const Color(0xFF8C98A8).withOpacity(0.2),
+                                ),
+                              ),
+                            ),
+                          ),
+                          onSelect: (Country country) {
+                            print('Select country: ${country.displayName}');
+                            phoneCode = country.phoneCode.toString();
+                            setState(() {
+
+                            });
+
+                          },
+                        );
+                      },
+                      child: Text(phoneCode.toString(), style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.borderColor,fontSize: 15),))
+                ),
+                Container(
+                  height: height*0.04,
+                  child: TextFiledWidget(
+                    controller: password,
+                    textHint: 'ENTER YOUR NUMBER',
+                    textAlign: TextAlign.start,
+                    textInputType: TextInputType.text,
+                    obscureChara: '*',
+                    obscure: false,
+                    border: 4,
+                  ),
+                ),
+              ],
             )
-            // Container(
-            //   height: height*0.04,
-            //   child: TextFiledWidget(
-            //     controller: password,
-            //     textHint: 'PASSWORD',
-            //     textAlign: TextAlign.start,
-            //     textInputType: TextInputType.text,
-            //     obscureChara: '*',
-            //     obscure: false,
-            //     border: 4,
-            //   ),
-            // ),
             // SizedBox(height: height*0.02,),
             // Container(
             //   height: height*0.04,
