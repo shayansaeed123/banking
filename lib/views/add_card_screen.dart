@@ -80,13 +80,16 @@ class _AddCardScreenState extends State<AddCardScreen> {
               ),
             ),
             SizedBox(height: height*0.02,),
-            Text('EXPIRED DATE'),
             Container(
-              height: height*0.08,
-              padding: EdgeInsets.symmetric(horizontal: width*0.1,vertical: height*0.02),
+                width: width*0.8,
+                // height: height*0.02,
+                child: Text('EXPIRED DATE', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.borderColor,fontSize: 15),)),
+            Container(
+              height: height*0.05,
+              padding: EdgeInsets.symmetric(horizontal: width*0.1,vertical: height*0.0),
               child: DropdownDatePicker(
                 inputDecoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(top: height*0.01),
+                  contentPadding: EdgeInsets.only(top: height*0.0),
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey, width: 2),
                     ),
@@ -106,19 +109,43 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 onChangedYear: (value) => print('onChangedYear: $value'),
               ),
             ),
-            // Container(
-            //   height: height*0.04,
-            //   child: TextFiledWidget(
-            //     controller: email,
-            //     textHint: 'EMAIL',
-            //     textAlign: TextAlign.start,
-            //     textInputType: TextInputType.text,
-            //     obscureChara: '*',
-            //     obscure: false,
-            //     border: 4,
-            //   ),
-            // ),
-            // SizedBox(height: height*0.02,),
+            SizedBox(height: height*0.02,),
+            Container(
+              height: height*0.04,
+              child: TextFiledWidget(
+                controller: password,
+                textHint: 'PASSWORD',
+                textAlign: TextAlign.start,
+                textInputType: TextInputType.text,
+                obscureChara: '*',
+                obscure: true,
+                border: 4,
+              ),
+            ),
+            SizedBox(height: height*0.02,),
+            Container(
+                width: width*0.8,
+                // height: height*0.02,
+                child: Text('PHONE NUMBER', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.borderColor,fontSize: 15),)),
+            Container(
+              width: width*0.3,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(color: Colors.grey,width: 2),
+              ),
+              child: CountryCodePicker(
+                onChanged: print,
+                // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                initialSelection: 'IT',
+                favorite: ['+39','FR'],
+                // optional. Shows only country name and flag
+                showCountryOnly: false,
+                // optional. Shows only country name and flag when popup is closed.
+                showOnlyCountryWhenClosed: false,
+                // optional. aligns the flag and the Text left
+                alignLeft: false,
+              ),,
+            )
             // Container(
             //   height: height*0.04,
             //   child: TextFiledWidget(
