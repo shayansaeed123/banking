@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../repo/colors.dart';
 import '../repo/widgets/button.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../repo/widgets/text_field.dart';
 
@@ -144,7 +145,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                 showOnlyCountryWhenClosed: false,
                 // optional. aligns the flag and the Text left
                 alignLeft: false,
-              ),,
+              ),
             )
             // Container(
             //   height: height*0.04,
