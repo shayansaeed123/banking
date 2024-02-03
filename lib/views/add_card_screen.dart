@@ -181,7 +181,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                   height: height*0.04,
                   child: TextFiledWidget(
                     fieldWidth: 0.7,
-                    controller: password,
+                    controller: phone,
                     textHint: 'ENTER YOUR NUMBER',
                     textAlign: TextAlign.start,
                     textInputType: TextInputType.text,
@@ -191,44 +191,14 @@ class _AddCardScreenState extends State<AddCardScreen> {
                   ),
                 ),
               ],
+            ),
+            SizedBox(height: height*0.1,),
+            ButtonWidget(
+              onTap: (){},
+              text: 'LINK CARD',
+              buttonTextColor: AppColors.whiteButtonColor,
+              btnWidth: width*0.4,
             )
-            // SizedBox(height: height*0.02,),
-            // Container(
-            //   height: height*0.04,
-            //   child: TextFiledWidget(
-            //     controller: phone,
-            //     textHint: 'PHONE NUMBER',
-            //     textAlign: TextAlign.start,
-            //     textInputType: TextInputType.text,
-            //     obscureChara: '*',
-            //     obscure: false,
-            //     border: 4,
-            //   ),
-            // ),
-            // SizedBox(height: height*0.02,),
-            // Container(
-            //   width: width * 0.8,
-            //   child: TextFormField(
-            //     controller: address,
-            //     textAlign: TextAlign.start,
-            //     keyboardType: TextInputType.text,
-            //     maxLines: 5,
-            //     decoration: InputDecoration(
-            //       border: OutlineInputBorder(borderRadius: BorderRadius.circular(4),borderSide: BorderSide(width: 2)),
-            //       enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(4),borderSide: BorderSide(color: AppColors.borderColor,width: 2)),
-            //       hintText: 'YOUR ADDRESS',
-            //       contentPadding: EdgeInsets.only(left: width*0.02,top: height*0.02),
-            //       focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(4),borderSide: BorderSide(color: AppColors.enableBorder,width: 2)),
-            //     ),
-            //   ),
-            // ),
-            // SizedBox(height: height*0.05,),
-            // ButtonWidget(
-            //   onTap: (){},
-            //   text: 'SAVE CHANGES',
-            //   buttonTextColor: AppColors.whiteButtonColor,
-            //   btnWidth: width*0.4,
-            // )
           ],
         ),
       ),
