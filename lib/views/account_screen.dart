@@ -1,8 +1,11 @@
 import 'package:banking/repo/widgets/button.dart';
 import 'package:banking/repo/widgets/text_field.dart';
+import 'package:banking/views/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../repo/colors.dart';
+import 'add_card_screen.dart';
+import 'home_screen.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -25,6 +28,8 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       appBar: AppBar(
         // leading: Icon(Icons.arrow_back_ios),
+        title: Text('ACCOUNT',style: TextStyle(color: Colors.white)),
+        centerTitle: true,
         actions: [
           InkWell(
             onTap: (){
@@ -35,7 +40,60 @@ class _AccountScreenState extends State<AccountScreen> {
           SizedBox(width:width*0.03,),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF184577),
+              ),
+              child: Text("BANKING",style: TextStyle(color: Colors.white,fontSize: 30),textAlign: TextAlign.center),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+              ),
+              title: const Text('HOME'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                // Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.add_card_outlined,
+              ),
+              title: const Text('ADD CARD'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AddCardScreen(),));
+                // Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.account_balance,
+              ),
+              title: const Text('ACCOUNT'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AccountScreen(),));
+                // Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.login_outlined,
+              ),
+              title: const Text('SIGN UP'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen(),));
+                // Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: Container(
         width: width,
         height: height*0.9,
@@ -92,7 +150,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 textAlign: TextAlign.start,
                 textInputType: TextInputType.text,
                 obscureChara: '*',
-                obscure: false,
+                obscure: true,
                 border: 4,
               ),
             ),
