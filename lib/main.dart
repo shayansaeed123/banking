@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           displayMedium: GoogleFonts.poppins(textStyle: textTheme.displayMedium)
         ),
       ),
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
