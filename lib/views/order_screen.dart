@@ -8,6 +8,8 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
+  bool isVisible = true;
+  String name = 'ACCEPT';
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -51,28 +53,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   ],
                 ),
                 SizedBox(height: height*0.04,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton(
-                        onPressed: (){}, child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
-                          child: Text('ACCEPT',style: TextStyle(color: Colors.white)),
-                        ),
-                        style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.green.shade900),
-                            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
-                        )
-                    ),
-                    ElevatedButton(onPressed: (){}, child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
-                      child: Text('CHAT',style: TextStyle(color: Colors.white)),
-                    ),
-                        style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue.shade900),
-                            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
-                        )
-                    ),
-                  ],
-                ),
+                button(),
               ],
             ),
           ),
@@ -238,5 +219,85 @@ class _OrderScreenState extends State<OrderScreen> {
         ],
       ),
     );
+  }
+  button(){
+    if(name == 'ACCEPT'){
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ElevatedButton(
+              onPressed: (){
+                setState(() {
+                  name = 'PREPARE';
+                });
+              }, child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+            child: Text(name,style: TextStyle(color: Colors.white)),
+          ),
+              style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.green.shade900),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+              )
+          ),
+          // ElevatedButton(
+          //     onPressed: (){}, child: Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+          //   child: Text('PREPARE',style: TextStyle(color: Colors.white)),
+          // ),
+          //     style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.green.shade900),
+          //         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+          //     )
+          // ),
+          ElevatedButton(
+              onPressed: (){}, child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+            child: Text('CHAT',style: TextStyle(color: Colors.white)),
+          ),
+              style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue.shade900),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+              )
+          ),
+        ],
+      );
+    }else if(name == 'PREPARE'){
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ElevatedButton(
+              onPressed: (){
+                name = 'GO';
+                setState(() {
+
+                });
+              }, child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+            child: Text(name,style: TextStyle(color: Colors.white)),
+          ),
+              style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.green.shade900),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+              )
+          ),
+          // ElevatedButton(
+          //     onPressed: (){}, child: Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+          //   child: Text('PREPARE',style: TextStyle(color: Colors.white)),
+          // ),
+          //     style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.green.shade900),
+          //         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+          //     )
+          // ),
+          ElevatedButton(
+              onPressed: (){}, child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+            child: Text('CHAT',style: TextStyle(color: Colors.white)),
+          ),
+              style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue.shade900),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+              )
+          ),
+        ],
+      );
+    }else if(name == 'GO'){
+      return Container();
+    }
   }
 }
