@@ -2,6 +2,7 @@ import 'package:banking/repo/colors.dart';
 import 'package:banking/views/add_card_screen.dart';
 import 'package:banking/views/home_screen.dart';
 import 'package:banking/views/login_screen.dart';
+import 'package:banking/views/order_screen.dart';
 import 'package:banking/views/sign_up_screen.dart';
 import 'package:banking/views/account_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           displayMedium: GoogleFonts.poppins(textStyle: textTheme.displayMedium)
         ),
       ),
-      home: LoginScreen(),
+      home: OrderScreen(),
     );
   }
 }
