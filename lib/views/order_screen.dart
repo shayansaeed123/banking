@@ -20,7 +20,7 @@ class _OrderScreenState extends State<OrderScreen> {
           Container(
             padding: EdgeInsets.all(height*0.01),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: name == 'ACCEPT' ? LinearGradient(
                 colors: [
                   Colors.red.shade700,
                   Colors.red.shade200
@@ -28,6 +28,14 @@ class _OrderScreenState extends State<OrderScreen> {
                 begin: Alignment.centerLeft,
                 end: Alignment.bottomRight,
                 stops: [0.1,0.2]
+              ) : LinearGradient(
+                  colors: [
+                    Colors.white,
+                    Colors.white
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.bottomRight,
+                  stops: [0.1,0.2]
               )
             ),
             child: Column(
@@ -297,7 +305,45 @@ class _OrderScreenState extends State<OrderScreen> {
         ],
       );
     }else if(name == 'GO'){
-      return Container();
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          ElevatedButton(
+              onPressed: (){
+                name = 'REMOVE';
+                setState(() {
+
+                });
+              }, child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+            child: Text(name,style: TextStyle(color: Colors.white)),
+          ),
+              style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.green.shade900),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+              )
+          ),
+          // ElevatedButton(
+          //     onPressed: (){}, child: Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+          //   child: Text('PREPARE',style: TextStyle(color: Colors.white)),
+          // ),
+          //     style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.green.shade900),
+          //         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+          //     )
+          // ),
+          ElevatedButton(
+              onPressed: (){}, child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0,vertical: 10.0),
+            child: Text('CHAT',style: TextStyle(color: Colors.white)),
+          ),
+              style: ButtonStyle(backgroundColor: MaterialStateColor.resolveWith((states) => Colors.blue.shade900),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)))
+              )
+          ),
+        ],
+      );
+    }else if(name == 'REMOVE'){
+      return SizedBox(width: 0,height: 0,);
     }
   }
 }
